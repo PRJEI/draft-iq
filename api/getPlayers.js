@@ -6,9 +6,9 @@ const supabase = createClient(
 );
 
 export default async function handler(req, res) {
-  // ✅ CORS headers
+  // ✅ CORS (must be FIRST)
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   // ✅ Handle preflight
@@ -16,7 +16,9 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const { data, error } = await supabase.from("players").select("*");
+  const { data, error } = await supabase
+    .from("players")
+    .select("*");
 
   if (error) {
     return res.status(500).json({ error: error.message });
