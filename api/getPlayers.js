@@ -6,12 +6,12 @@ const supabase = createClient(
 );
 
 export default async function handler(req, res) {
-  // CORS headers
+  // ✅ CORS headers
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // Preflight
+  // ✅ Handle preflight
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -22,5 +22,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: error.message });
   }
 
-  res.status(200).json(data);
+  return res.status(200).json(data);
 }
