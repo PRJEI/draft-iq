@@ -6,9 +6,17 @@ const supabase = createClient(
 );
 
 export default async function handler(req, res) {
-  const { data, error } = await supabase
-    .from("players")
-    .select("*");
+  // CORS headers
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Preflight
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  const { data, error } = await supabase.from("players").select("*");
 
   if (error) {
     return res.status(500).json({ error: error.message });
