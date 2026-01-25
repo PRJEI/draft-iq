@@ -1,7 +1,7 @@
 const button = document.getElementById("loadBtn");
 const list = document.getElementById("playerList");
 
-const API_BASE = "https://group7project-1hezh74f8-elis-projects-ece3cb61.vercel.app";
+const API_BASE = "https://group7project-six.vercel.app/";
 
 button.addEventListener("click", async () => {
   list.innerHTML = "<li>Loading players...</li>";
