@@ -16,22 +16,29 @@ body {
 button {
   padding: 10px 15px;
   font-size: 16px;
-  margin-bottom: 15px;
   cursor: pointer;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.ask-row {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
 }
 
-th,
-td {
+input {
+  flex: 1;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-th {
-  background-color: #f8f8f8;
+.bot-response {
+  min-height: 120px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  line-height: 1.5;
+  white-space: normal;
 }
