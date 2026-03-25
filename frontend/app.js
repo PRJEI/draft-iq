@@ -13,7 +13,7 @@ button.addEventListener("click", async () => {
 
     players.forEach(p => {
       const li = document.createElement("li");
-      li.textContent = `${p.name} '|"${p.position} '|'`;
+      li.textContent = `${p.name} |${p.position}|`;
       list.appendChild(li);
     });
   } catch (err) {
