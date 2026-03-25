@@ -1,26 +1,22 @@
 const button = document.getElementById("loadBtn");
-const list = document.getElementById("playerList");
-
+const table = document.getElementById("playerTable");
 
 button.addEventListener("click", async () => {
-  list.innerHTML = "<li>Loading players...</li>";
+  table.innerHTML = "<tr><td colspan='3'>Loading players...</td></tr>";
 
   try {
     const response = await fetch(`https://group7project-six.vercel.app/api/getPlayers`);
     const players = await response.json();
 
-    list.innerHTML = "";
+    table.innerHTML = "";
 
     players.forEach(p => {
-      const li = document.createElement("li");
-      li.textContent = `${p.name} | ${p.position} | ${p.team_abbreviation} |`;      
-      list.appendChild(li);
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${p.name}</td><td>${p.position}</td><td>${p.team_abbreviation}</td>`;
+      table.appendChild(row);
     });
   } catch (err) {
     console.error(err);
-    list.innerHTML = "<li>Failed to load players.</li>";
+    table.innerHTML = "<tr><td colspan='3'>Failed to load players.</td></tr>";
   }
 });
-
-    
-
