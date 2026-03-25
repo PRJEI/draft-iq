@@ -7,10 +7,10 @@ body {
 .container {
   background: #ffffff;
   padding: 20px;
-  max-width: 600px;
+  max-width: 900px;
   margin: auto;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -40,5 +40,30 @@ input {
   border-radius: 6px;
   padding: 12px;
   line-height: 1.5;
-  white-space: normal;
+}
+
+.bot-message {
+  margin: 0 0 12px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.bot-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bot-table th,
+.bot-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.bot-table th {
+  background: #f0f3f8;
+  font-size: 13px;
 }
