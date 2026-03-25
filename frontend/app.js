@@ -1,7 +1,9 @@
 const button = document.getElementById("loadBtn");
+const playerTable = document.getElementById("playerTable");
 const playerTableBody = document.getElementById("playerList");
 
 button.addEventListener("click", async () => {
+  playerTable.hidden = false;
   playerTableBody.innerHTML = "<tr><td colspan='3'>Loading players...</td></tr>";
 
   try {
