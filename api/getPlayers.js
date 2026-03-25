@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   }
 
   const { data, error } = await supabase
-    .from("players")
+    .from("nfl_players")
     .select("*");
 
   if (error) {
