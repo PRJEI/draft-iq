@@ -9,20 +9,14 @@
 
   <div class="container">
     <h1>🏈 Draft IQ</h1>
-    <p>Load draft prospects and rankings</p>
+    <p>Rule-based NFL bot (type commands like <code>help</code>, <code>teams afc</code>, <code>players qb</code>)</p>
 
-    <button id="loadBtn">Load Players</button>
+    <div class="ask-row">
+      <input id="commandInput" type="text" placeholder="Type a command (ex: help, top 10 players, roster chiefs)" />
+      <button id="askBtn">Ask Bot</button>
+    </div>
 
-    <table id="playerTable" hidden>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Team</th>
-        </tr>
-      </thead>
-      <tbody id="playerList"></tbody>
-    </table>
+    <div id="botResponse" class="bot-response"></div>
   </div>
 
   <script src="app.js"></script>
