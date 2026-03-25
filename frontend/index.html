@@ -1,21 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Draft IQ</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+export default function DraftUI() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
+      
+      {/* Header */}
+      <div className="w-full max-w-3xl mb-6">
+        <h1 className="text-xl font-semibold">🏆 DraftIQ</h1>
+        <p className="text-sm text-gray-500">NFL Database Assistant</p>
+      </div>
 
-  <div class="container">
-    <h1>🏈 Draft IQ</h1>
-    <p>Load draft prospects and rankings</p>
+      {/* Main Content */}
+      <div className="w-full max-w-3xl text-center">
+        <h2 className="text-2xl font-semibold mb-2">Welcome to DraftIQ</h2>
+        <p className="text-gray-500 mb-6">
+          Use commands to query NFL teams and players. Type <span className="bg-gray-200 px-2 py-1 rounded">help</span> to see all available commands.
+        </p>
 
-    <button id="loadBtn">Load Players</button>
+        {/* Card */}
+        <div className="bg-white rounded-xl shadow p-6 text-left mb-6">
+          <h3 className="font-semibold mb-3">❓ Quick Reference</h3>
 
-    <ul id="playerList"></ul>
-  </div>
+          <div className="space-y-2 text-sm">
+            <p><span className="bg-gray-200 px-2 py-1 rounded">teams</span> - Show all teams</p>
+            <p><span className="bg-gray-200 px-2 py-1 rounded">teams afc north</span> - Filter by division</p>
+            <p><span className="bg-gray-200 px-2 py-1 rounded">players qb</span> - Filter by position</p>
+            <p><span className="bg-gray-200 px-2 py-1 rounded">roster chiefs</span> - Get team roster</p>
+            <p><span className="bg-gray-200 px-2 py-1 rounded">superbowls &gt;1</span> - Teams with wins</p>
+            <p><span className="bg-gray-200 px-2 py-1 rounded">search mahomes</span> - Search player</p>
+          </div>
+        </div>
 
-  <script src="app.js"></script>
-</body>
-</html>
+        {/* Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
+          {["All Teams", "AFC North", "Quarterbacks", "Top 10 Players", "Super Bowls >1", "Help"].map(btn => (
+            <button
+              key={btn}
+              className="px-4 py-2 bg-white border rounded-full shadow-sm hover:bg-gray-100 text-sm"
+            >
+              {btn}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Input Bar */}
+      <div className="w-full max-w-3xl mt-auto">
+        <div className="flex border rounded-lg overflow-hidden bg-white shadow">
+          <input
+            type="text"
+            placeholder="Enter command (e.g., teams, players qb, help)..."
+            className="flex-1 p-3 outline-none"
+          />
+          <button className="px-4 bg-gray-200 hover:bg-gray-300">
+            ➤
+          </button>
+        </div>
+
+        <p className="text-xs text-gray-400 text-center mt-3">
+          Data sourced from NFL database. Ask about teams, players, rosters, and more.
+        </p>
+      </div>
+    </div>
+  );
+}
