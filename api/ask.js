@@ -120,8 +120,8 @@ async function executeCommand(input) {
       success: true,
       message:
         teams.length > 0
-          ? `**Teams matching "${term}" (${teams.length})**`
-          : `No teams found matching "${term}"`,
+          ? `**Teams matching ${term} (${teams.length})**`
+          : `No teams found matching **${term}**`,
       data: teams.length > 0 ? teams : null,
       columns: ["name", "city", "abbreviation", "conference", "division", "super_bowl_wins", "head_coach"],
     };
@@ -181,7 +181,7 @@ async function executeCommand(input) {
     if (teams.length === 0) {
       return {
         success: true,
-        message: `No team found matching "${term}". Try \`teams\` to see available team names.`,
+        message: `No team found matching **${term}**. Try \`teams\` to see available team names.`,
         data: null,
       };
     }
@@ -198,14 +198,14 @@ async function executeCommand(input) {
     if (players.length === 0) {
       return {
         success: true,
-        message: `No players found for team "${term}".`,
+        message: `No players found for team **${term}**.`,
         data: null,
       };
     }
 
     return {
       success: true,
-      message: `**Roster for "${term}" (${players.length} players)**`,
+      message: `**Roster for ${term} (${players.length} players)**`,
       data: players,
       columns: ["name", "position", "jersey_number", "years_pro", "college"],
     };
@@ -227,8 +227,8 @@ async function executeCommand(input) {
       success: true,
       message:
         normalized.length > 0
-          ? `**Players matching "${term}" (${normalized.length})**`
-          : `No players found matching "${term}"`,
+          ? `**Players matching ${term} (${normalized.length})**`
+          : `No players found matching **${term}**`,
       data: normalized.length > 0 ? normalized : null,
       columns: ["name", "position", "jersey_number", "team", "years_pro", "college"],
     };
@@ -278,7 +278,7 @@ async function executeCommand(input) {
 
   return {
     success: false,
-    message: `Unknown command: "${input}"\n\nType \`help\` to see available commands.`,
+    message: `Unknown command: **${input}**\n\nType \`help\` to see available commands.`,
     data: null,
   };
 }
