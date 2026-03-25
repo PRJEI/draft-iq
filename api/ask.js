@@ -326,6 +326,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       response: markdown,
+      message: result.message,
       success: result.success,
       data: result.data ?? null,
       columns: result.columns ?? null,
