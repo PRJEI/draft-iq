@@ -44,7 +44,10 @@ function renderResponseTable(columns, rows) {
 }
 
 function renderMessage(message) {
-  return escapeHtml(message || "No response.").replaceAll("\n", "<br>");
+  const escaped = escapeHtml(message || "No response.");
+  return escaped
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replaceAll("\n", "<br>");
 }
 
 async function askBot() {
