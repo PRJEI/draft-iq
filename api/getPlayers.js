@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
   const { data, error } = await supabase
     .from("nfl_players")
-    .select("name");
+    .select("name,position");
 
   if (error) {
     return res.status(500).json({ error: error.message });
