@@ -14,7 +14,7 @@ button.addEventListener("click", async () => {
 
     players.forEach(p => {
       const row = document.createElement("tr");
-      row.innerHTML = `<td>${p.name}</td><td>${p.position}</td><td>${p.team_abbreviation}</td>`;
+      row.innerHTML = `<td>${p.name}</td><td>${p.position}</td><td>${p.height_inches}</td><td>${p.team_abbreviation}</td><td>${p.years_pro}</td>`;
       playerTableBody.appendChild(row);
     });
   } catch (err) {
