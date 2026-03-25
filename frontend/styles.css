@@ -20,12 +20,18 @@ button {
   cursor: pointer;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-li {
-  padding: 8px;
+th,
+td {
+  padding: 10px;
   border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f8f8;
 }
