@@ -1,24 +1,47 @@
-const button = document.getElementById("loadBtn");
-const playerTable = document.getElementById("playerTable");
-const playerTableBody = document.getElementById("playerList");
+const askButton = document.getElementById("askBtn");
+const commandInput = document.getElementById("commandInput");
+const botResponse = document.getElementById("botResponse");
 
-button.addEventListener("click", async () => {
-  playerTable.hidden = false;
-  playerTableBody.innerHTML = "<tr><td colspan='3'>Loading players...</td></tr>";
+function renderMarkdownAsHtml(markdown) {
+  const escaped = markdown
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+
+  return escaped.replaceAll("\n", "<br>");
+}
+
+async function askBot() {
+  const message = commandInput.value.trim();
+
+  if (!message) {
+    botResponse.innerHTML = "Please type a command first.";
+    return;
+  }
+
+  botResponse.innerHTML = "Thinking...";
 
   try {
-    const response = await fetch(`https://group7project-six.vercel.app/api/getPlayers`);
-    const players = await response.json();
-
-    playerTableBody.innerHTML = "";
-
-    players.forEach(p => {
-      const row = document.createElement("tr");
-      row.innerHTML = `<td>${p.name}</td><td>${p.position}</td><td>${p.team_abbreviation}</td>`;
-      playerTableBody.appendChild(row);
+    const response = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message }),
     });
-  } catch (err) {
-    console.error(err);
-    playerTableBody.innerHTML = "<tr><td colspan='3'>Failed to load players.</td></tr>";
+
+    const payload = await response.json();
+
+    if (!response.ok) {
+      throw new Error(payload.error || "Request failed");
+    }
+
+    botResponse.innerHTML = renderMarkdownAsHtml(payload.response || "No response.");
+  } catch (error) {
+    console.error(error);
+    botResponse.innerHTML = "Failed to get response from rule-based bot.";
   }
+}
+
+askButton.addEventListener("click", askBot);
+commandInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") askBot();
 });
