@@ -1,5 +1,5 @@
 const button = document.getElementById("loadBtn");
-const table = document.getElementById("playerTable");
+const table = document.getElementById("playerlist");
 
 button.addEventListener("click", async () => {
   table.innerHTML = "<tr><td colspan='3'>Loading players...</td></tr>";
