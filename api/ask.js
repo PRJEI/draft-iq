@@ -4,12 +4,11 @@ const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_ANON_KEY
 );
-
+//This is how it will show in the interface for the user
 function helpResult() {
   return {
     success: true,
     message: `**NFL Bot Commands:**
-
 | Command | Description | Example |
 |---------|-------------|---------|
 | \`teams\` | Show all teams | \`teams\` |
