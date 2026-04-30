@@ -11,17 +11,17 @@ function helpResult() {
     message: `**NFL Bot Commands:**
 | Command | Description | Example |
 |---------|-------------|---------|
-| \`teams\` | Show all teams | \`teams\` |
-| \`teams [conference]\` | Filter by AFC or NFC | \`teams afc\` |
-| \`teams [conference] [division]\` | Filter by division | \`teams afc north\` |
-| \`team [name]\` | Search team by name | \`team chiefs\` |
-| \`players\` | Show all players | \`players\` |
-| \`players [position]\` | Filter by position | \`players qb\` |
-| \`roster [team]\` | Get team roster | \`roster chiefs\` |
-| \`search [name]\` | Search players by name | \`search mahomes\` |
-| \`superbowls >[n]\` | Teams with more than n wins | \`superbowls >1\` |
-| \`top [n] players\` | Top n players by years pro | \`top 10 players\` |
-| \`help\` | Show this help | \`help\` |
+| \ teams\ | Show all teams | \ teams\ |
+| \ teams [conference]\ | Filter by AFC or NFC | \ teams afc\ |
+| \ teams [conference] [division]\ | Filter by division | \ teams afc north\ |
+| \ team [name]\ | Search team by name | \ team eagles\ |
+| \ players\ | Show all players | \ players\ |
+| \ players [position]\ | Filter by position | \ players qb\ |
+| \ roster [team]\ | Get team roster | \ roster eagles\ |
+| \ search [name]\ | Search players by name | \ search saquon\ |
+| \ superbowls >[n]\ | Teams with more than n wins | \ superbowls >1\ |
+| \ top [n] players\ | Top n players by years pro | \ top 10 players\ |
+| \ help\ | Show this help | \ help\ |
 
 **Positions:** QB, RB, WR, TE, OL, DL, LB, CB, S, K, P`,
     data: null,
